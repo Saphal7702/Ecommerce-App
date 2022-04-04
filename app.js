@@ -1,12 +1,28 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const expressValidator = require('express-validator');
+
 require("dotenv").config();
+
+//Configuring user routes
+const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
+mongoose.connect("mongodb://localhost:27017/Ecommercedb", {useNewUrlParser: true});
 
-app.get("/", function(req, res){
-    res.send("Hello, we're up and running...")
-});
+app.use(morgan('dev'))
+app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(expressValidator());
+
+//Using routes middleware
+app.use("/api",authRoutes);
+app.use("/api",userRoutes);
 
 const port = process.env.PORT || 8000;
 
