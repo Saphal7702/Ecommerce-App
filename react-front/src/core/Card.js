@@ -27,7 +27,6 @@ const Card = ({
     );
   };
   const addToCart = () => {
-    // console.log('added');
     addItem(product, setRedirect(true));
   };
 
@@ -38,13 +37,13 @@ const Card = ({
   };
 
   const showAddToCartBtn = showAddToCartButton => {
-    return (
-      showAddToCartButton && (
+    if(product.quantity>0 && showAddToCartBtn){
+      return(
         <button onClick={addToCart} className="btn btn-outline-warning mt-2 mb-2 card-btn-1  ">
           Add to cart
         </button>
       )
-    );
+    }
   };
 
   const showStock = quantity => {

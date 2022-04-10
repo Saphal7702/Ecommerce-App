@@ -36,7 +36,6 @@ export const updateCategory = (categoryId, userId, token, category) => {
 };
 
 export const createProduct = (userId, token, product) => {
-    console.log(product);
     return fetch(`${API}/product/create/${userId}`, {
         method: 'POST',
         headers: {
@@ -116,14 +115,6 @@ export const updateOrderStatus = (userId, token, orderId, status) => {
         })
         .catch(err => console.log(err));
 };
-
-/**
- * to perform crud on product
- * get all products
- * get a single product
- * update single product
- * delete single product
- */
 
 export const getProducts = () => {
     return fetch(`${API}/products?limit=undefined`, {

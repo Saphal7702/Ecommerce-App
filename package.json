@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Saphal7702/Ecommerce-App#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.6.2",
     "body-parser": "^1.20.0",
     "braintree": "^3.11.0",
     "cookie-parser": "^1.4.6",

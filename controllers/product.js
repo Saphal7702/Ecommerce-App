@@ -42,12 +42,8 @@ exports.create = (req, res) => {
         }
 
         let product = new Product(fields);
-
-        // 1kb = 1000
-        // 1mb = 1000000
-
+    
         if (files.photo) {
-            // console.log("FILES PHOTO: ", files.photo);
             if (files.photo.size > 1000000) {
                 return res.status(400).json({
                     error: 'Image should be less than 1mb in size'
@@ -59,7 +55,6 @@ exports.create = (req, res) => {
 
         product.save((err, result) => {
             if (err) {
-                console.log('PRODUCT CREATE ERROR ', err);
                 return res.status(400).json({
                     error: errorHandler(err)
                 });
@@ -96,11 +91,7 @@ exports.update = (req, res) => {
         let product = req.product;
         product = _.extend(product, fields);
 
-        // 1kb = 1000
-        // 1mb = 1000000
-
         if (files.photo) {
-            // console.log("FILES PHOTO: ", files.photo);
             if (files.photo.size > 1000000) {
                 return res.status(400).json({
                     error: 'Image should be less than 1mb in size'
@@ -194,9 +185,6 @@ exports.listBySearch = (req, res) => {
     let limit = req.body.limit ? parseInt(req.body.limit) : 100;
     let skip = parseInt(req.body.skip);
     let findArgs = {};
-
-    // console.log(order, sortBy, limit, skip, req.body.filters);
-    // console.log("findArgs", findArgs);
 
     for (let key in req.body.filters) {
         if (req.body.filters[key].length > 0) {
