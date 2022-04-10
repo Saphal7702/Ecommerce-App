@@ -19,7 +19,10 @@ const orderRoutes = require("./routes/order");
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/Ecommercedb", {useNewUrlParser: true});
+// mongoose.connect("mongodb://localhost:27017/Ecommercedb", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://saphal7702:"+process.env.DBPASS+"@cluster0.ngbyi.mongodb.net/Bookbrewerydb?retryWrites=true&w=majority", {
+  useNewUrlParser: true
+});
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())

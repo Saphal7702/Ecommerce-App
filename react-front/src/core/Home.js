@@ -37,8 +37,8 @@ const Home = () => {
 
     return (
         <Layout
-            title="FullStack React Node MongoDB Ecommerce App"
-            description="Node React E-commerce App"
+            title="Welcome to Book Brewery!"
+            description="Home for book lovers📖"
             className="container-fluid"
         >
             <Search />
