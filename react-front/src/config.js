@@ -1,1 +1,1 @@
-export const API = process.env.REACT_APP_API_URL;
+export const API = "https://calm-cove-90906.herokuapp.com/api";
